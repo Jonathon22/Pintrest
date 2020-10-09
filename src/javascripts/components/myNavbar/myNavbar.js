@@ -26,7 +26,7 @@ const myNavbar = (user) => {
       <li class="nav-item mx-3"  id="all-boards-link">
         <a class="nav-link" href="#"><i class="fas fa-clipboard"></i>Boards</a>
       </li>
-      <li class="nav-item mx-3" id="add-boards-link">
+      <li class="nav-item mx-3" id="add-board-link">
         <a class="nav-link" href="#"><i class="fas fa-clipboard-check"></i>Add a board</a>
       </li>
       <li class="nav-item mx-3" id="add-pin-link">

@@ -1,9 +1,8 @@
-import addBoard from '../../forms/addBoardsForm';
+import form from '../../forms/addBoardsForm';
 
-const addBoardDom = () => {
-  $('#app').html('');
-  addBoard.addBoardsForm();
-  $('.no-boards').html('');
+const addBoardView = () => {
+  $('#app').html('<div id="board-form"></div>');
+  form.addBoard();
 };
 
-export default { addBoardDom };
+export default { addBoardView };

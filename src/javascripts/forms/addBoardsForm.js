@@ -2,7 +2,7 @@ import boardData from '../helpers/data/boardData';
 import userData from '../helpers/data/userData';
 
 const addBoard = () => {
-  $('#add-boards-form').html(`<h2>Add A Board</h2>
+  $('#board-form').html(`<h2>Add A Board</h2>
   <div id="success-message"></div>
   <form>
     <div id="error-message"></div>
@@ -30,7 +30,6 @@ const addBoard = () => {
       $('select').append(`<option value="${item.uid}">${item.name}</option>`);
     });
   });
-
   $('#add-board-btn').on('click', (e) => {
     e.preventDefault();
 
