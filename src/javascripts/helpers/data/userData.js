@@ -7,7 +7,7 @@ const checkIfUserExistsInFirebase = (user) => {
     .get(`${baseUrl}/users.json?orderBy="uid"&equalTo="${user.uid}"`)
     .then((resp) => {
       if (Object.values(resp.data).length === 0) {
-        axios.post(`${baseUrl}/farmers.json`, user).then((response) => {
+        axios.post(`${baseUrl}/users.json`, user).then((response) => {
           const update = { firebaseKey: response.data.name };
           axios
             .patch(`${baseUrl}/users/${response.data.name}.json`, update)
@@ -21,7 +21,7 @@ const checkIfUserExistsInFirebase = (user) => {
     .catch((error) => console.error(error));
 };
 const setCurrentUser = (userObj) => {
-  const farmer = {
+  const user = {
     image: userObj.photoURL,
     uid: userObj.uid,
     name: userObj.displayName,
@@ -30,8 +30,21 @@ const setCurrentUser = (userObj) => {
   };
   const loggedIn = window.sessionStorage.getItem('ua');
   if (!loggedIn) {
-    checkIfUserExistsInFirebase(farmer);
+    checkIfUserExistsInFirebase(user);
   }
-  return farmer;
+  return user;
 };
-export default { checkIfUserExistsInFirebase, setCurrentUser };
+const getAllUsers = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/users.json`).then((response) => {
+    const userData = response.data;
+    const users = [];
+    if (userData) {
+      Object.keys(userData).forEach((item) => {
+        users.push(userData[item]);
+      });
+    }
+    resolve(users);
+  }).catch((error) => reject(error));
+});
+
+export default { checkIfUserExistsInFirebase, setCurrentUser, getAllUsers };
