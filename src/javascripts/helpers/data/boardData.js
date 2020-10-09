@@ -2,7 +2,7 @@ import axios from 'axios';
 import apiKeys from './apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
-console.warn(apiKeys.firebaseKeys);
+
 const getBoards = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/Boards.json`).then((response) => {
     const thoseBoards = response.data;
