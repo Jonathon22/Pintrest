@@ -23,6 +23,7 @@ const boardMaker = (board) => {
       laboriosam, nisi ut aliquid ex ea commodi.</p>
     <!-- Button -->
      <div class="board-body">
+     <a href="#" id="${board.uid}" class="btn btn-info pin-btn see-pins board-buttons"><i id="pin-icon" class="fas fa-map-pin"></i> Pins</a>
     <button id="${board.uid}" class="btn btn-dark delete-board board-buttons"><i class="far fa-trash-alt"></i> Delete Board </button>
     </div>
   </div>
