@@ -26,4 +26,5 @@ const updatePinsView = (uid) => {
 export default { updatePinsView };
 
 ```
-
+## ERD
+![Screenshot 1](ERD.png)
